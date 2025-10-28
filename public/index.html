@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#000000" />
+      <meta
+        name="description"
+        content="Web site created using create-react-app"
+      />
+      <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+      <!--
+        manifest.json provides metadata used when your web app is installed on a
+        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      -->
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      <!--
+        Notice the use of %PUBLIC_URL% in the tags above.
+        It will be replaced with the URL of the `public` folder during the build.
+        Only files inside the `public` folder can be referenced from the HTML.
+
+        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+        work correctly both with client-side routing and a non-root public URL.
+        Learn how to configure a non-root public URL by running `npm run build`.
+      -->
+      <title>React App</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    </head>
+
+    <body class="bg-gray-100 min-h-screen flex flex-col">
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+
+      <header>
+        <h1 class="text-3xl font-bold text-center mt-6 mb-10 text-gray-800">Royal Knighter</h1>
+      </header>
+
+      <main>
+        <!-- Container for image cards -->
+        <div class="max-w-7xl mx-auto px-4">
+          <div id="gallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4"></div>
+        </div>
+        <script>
+          const gallery = document.getElementById("gallery");
+
+          // Fetch and render artworks automatically
+          async function loadArtworks() {
+            try {
+              // 1️⃣ Search artworks from MET API (example query: 'portrait')
+              const searchResponse = await fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?q=portrait");
+              const searchData = await searchResponse.json();
+
+              // Get only first 25 results to avoid too many requests
+              const ids = searchData.objectIDs?.slice(0, 25) || [];
+
+              // 2️⃣ Fetch each artwork detail
+              for (const id of ids) {
+                const res = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+                const art = await res.json();
+
+                // Skip items with no image
+                if (!art.primaryImageSmall) continue;
+
+                // 3️⃣ Create a card element for each artwork
+                const card = document.createElement("div");
+                card.className = "mb-4 break-inside-avoid bg-white rounded-lg shadow hover:shadow-lg transition";
+
+                card.innerHTML = `
+                  <img src="${art.primaryImageSmall}" alt="${art.title}" class="w-full rounded-t-lg">
+                  <div class="p-3 text-center">
+                    <h2 class="font-semibold text-gray-800 text-sm">${art.title || "Untitled"}</h2>
+                    <p class="text-gray-500 text-xs mt-1">${art.artistDisplayName || "Unknown Artist"}</p>
+                  </div>
+                `;
+
+                // Add card to the grid
+                gallery.appendChild(card);
+              }
+
+            } catch (error) {
+              console.error("Error loading artworks:", error);
+              gallery.innerHTML = `<p class="text-center text-red-500">Failed to load artworks 😢</p>`;
+            }
+          }
+
+          // 4️⃣ Auto render when page loads
+          loadArtworks();
+        </script>
+        </main>
+
+      <footer>
+        <p>&copy; 2025 Dzaky Pramadhani </p>
+      </footer>
+
+    </body>
+</html>
