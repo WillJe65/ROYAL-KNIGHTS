@@ -6,14 +6,14 @@ export default function ImageCard({ art }) {
   const isFavorited = favorites.includes(art.id);
 
   return (
-    <div className="mb-4 break-inside-avoid bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative group">
+    <div className="bg-white rounded-lg shadow hover:shadow-lg transition relative group">
       {/* Like Button */}
       <button
         onClick={() => toggleFavorite(art.id)}
         className={`absolute top-3 right-3 z-10 p-2 rounded-full transition-all duration-200 ${
           isFavorited
             ? 'bg-red-500 text-white shadow-lg'
-            : 'bg-white/90 text-gray-400 hover:bg-white hover:text-red-500 shadow-md'
+            : 'bg-white/90 text-gray-400 hover:bg-white hover:text-red-500 shadow-md opacity-0 group-hover:opacity-100'
         }`}
         title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
       >
@@ -36,30 +36,36 @@ export default function ImageCard({ art }) {
       <img 
         src={art.primaryImageSmall || art.src} 
         alt={art.title}
-        className="w-full rounded-t-lg object-cover"
+        className="w-full rounded-t-lg"
         loading="lazy"
         onError={(e) => {
-          e.target.src = 'https://via.placeholder.com/400x500/667eea/white?text=Image+Not+Available';
+          e.target.src = 'https://via.placeholder.com/400x300/667eea/white?text=Image+Not+Available';
         }}
       />
       
-      {/* Artwork Info */}
-      <div className="p-4">
-        <h2 className="font-semibold text-gray-800 text-lg mb-2 line-clamp-2">
+      {/* Artwork Info - Your original centered design */}
+      <div className="p-3 text-center">
+        <h2 className="font-semibold text-gray-800 text-sm mb-1">
           {art.title}
         </h2>
-        <p className="text-gray-600 text-sm mb-1">
-          <span className="font-medium">Artist:</span> {art.artistDisplayName || art.artist || 'Unknown'}
+        <p className="text-gray-500 text-xs">
+          {art.artistDisplayName || art.artist || 'Unknown Artist'}
         </p>
-        {art.department && (
-          <p className="text-gray-500 text-xs mb-2">
-            <span className="font-medium">Department:</span> {art.department}
-          </p>
-        )}
-        {art.objectDate && (
-          <p className="text-gray-500 text-xs">
-            <span className="font-medium">Date:</span> {art.objectDate}
-          </p>
+        
+        {/* Additional metadata (optional) */}
+        {(art.department || art.objectDate) && (
+          <div className="mt-2 pt-2 border-t border-gray-100">
+            {art.department && (
+              <p className="text-gray-400 text-xs">
+                {art.department}
+              </p>
+            )}
+            {art.objectDate && (
+              <p className="text-gray-400 text-xs">
+                {art.objectDate}
+              </p>
+            )}
+          </div>
         )}
       </div>
     </div>

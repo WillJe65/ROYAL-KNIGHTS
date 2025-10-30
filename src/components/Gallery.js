@@ -61,12 +61,10 @@ export default function Gallery() {
 
   // Filter artworks based on active filter, search term, and favorites
   const filteredArtworks = artworks.filter(art => {
-    // Filter by favorites if active
     if (activeFilter === 'favorites' && !favorites.includes(art.id)) {
       return false;
     }
 
-    // Filter by search term
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase();
       return (
@@ -113,16 +111,10 @@ export default function Gallery() {
         </p>
       </div>
 
-      {/* Artworks Grid */}
-      <div 
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-        style={{ 
-          gridAutoRows: 'masonry',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))'
-        }}
-      >
+      {/* Your Original Column Layout */}
+      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
         {filteredArtworks.map(art => (
-          <div key={art.id} className="break-inside-avoid">
+          <div key={art.id} className="mb-4 break-inside-avoid">
             <ImageCard art={art} />
           </div>
         ))}
