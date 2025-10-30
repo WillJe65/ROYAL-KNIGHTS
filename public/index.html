@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
       <meta charset="utf-8" />
@@ -26,6 +25,7 @@
         Learn how to configure a non-root public URL by running `npm run build`.
       -->
       <title>React App</title>
+      <link rel="stylesheet "href="styles.css">
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
       <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
@@ -35,7 +35,18 @@
       <noscript>You need to enable JavaScript to run this app.</noscript>
 
       <header>
-        <h1 class="text-3xl font-bold text-center mt-6 mb-10 text-gray-800">Royal Knighter</h1>
+        <div class="logo">
+          <h1>Royal Knighter</h1>
+        </div>
+
+        <nav>
+          <ul class="flex justify-center">
+            <li><a href="#" class="text-white-700 hover:text-blue-600">Home</a></li>
+            <li><a href="#" class="text-white-700 hover:text-blue-600">Gallery</a></li>
+            <li><a href="#" class="text-white-700 hover:text-blue-600">About</a></li>
+            <li><a href="#" class="text-white-700 hover:text-blue-600">Contact</a></li>
+          </ul>
+        </nav>
       </header>
 
       <main>
