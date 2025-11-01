@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Royal Knights 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Royal Knights** itu aplikasi web keren yang dibikin pakai **React**. Kamu bisa jelajin ribuan karya seni dari koleksi **Met Museum** langsung dari API publiknya
 
-## Available Scripts
+![SCREENSHOOT](URL_UNTUK_SCREENSHOt)
 
-In the project directory, you can run:
+## Apa Aja Fiturnya?
 
-### `npm start`
+**Jelajah Seni:** Lihat karya seni dari API Met Museum.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Filter Departemen:** Filter berdasarkan Departemen dari API yang ada.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Cari Langsung:** Ketik aja judul, artis, atau departemen jika ingin mencari lebih spesifik.
 
-### `npm test`
+**Simpan Favorit:** Klik aja ikon hati! Nanti akan disimpan menggunakan local storage di browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Loading & Error handling:** Akan memberikan feedback apabila terjadinya masalah.
 
-### `npm run build`
+## Dibuat Pakai Apa Aja?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**React:** Buat bikin tampilannya.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**React Context API:** untuk mengatur data global (searchTerm, selectedDepartment, dan favorites).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Tailwind CSS:** Modern dan Flexisibel.
 
-### `npm run eject`
+**Met Museum Collection API:** API yang digunakan untuk menampilkan artwork.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Struktur Proyeknya
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Struktur folder pada Repository ini:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ROYAL-KNIGHTS/
+├── public/
+│   └── index.html       # HTML utama
+├── src/
+│   ├── components/      # Komponen React yang bisa dipakai ulang
+│   │   ├── DepartmentFilter.js # Dropdown untuk filter departemen
+│   │   ├── FilterTabs.js       # Tombol tab (All / Favorites)
+│   │   ├── Gallery.js          # Komponen utama untuk menampilkan seni
+│   │   ├── ImageCard.js        # Kartu buat tiap karya seni
+│   │   └── SearchBar.js        # untuk mencari lebih spesifik
+│   │
+│   ├── context/
+│   │   └── AppContext.js       # Data global (favorites, searchTerm, dll.)
+│   │
+│   ├── App.js           # Komponen utama aplikasi (layout)
+│   ├── index.js         # module start aplikasi
+│   └── index.css        # Styling global (termasuk Tailwind)
+│
+├── .env                 # API key/URL
+├── package.json         # Info dependensi proyek
+└── README.md            
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### HOW TO RUN
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Kalau mau jalanin proyek ini di komputermu, gampang banget. Ikuti aja langkah-langkah ini:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**1. Clone Repo**
 
-### Code Splitting
+git clone [https://github.com/WillJe65/ROYAL-KNIGHTS.git](https://github.com/WillJe65/ROYAL-KNIGHTS.git)
+cd ROYAL-KNIGHTS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+**2. Install Semua Paketnya**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Jalankan perintah ini pada terminal untuk install semua module yang dibutuhkan:
 
-### Making a Progressive Web App
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+**3. Atur File .env** 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Proyek ini menyimpan URL API untuk kemudahan pengubahan code jika diperlukan.
 
-### Deployment
+Bikin file baru namanya .env di folder root proyek.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Salin dan tempel baris ini ke file .env:
 
-### `npm run build` fails to minify
+REACT_APP_MET_API_BASE_URL=[https://collectionapi.metmuseum.org](https://collectionapi.metmuseum.org)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**4. RUN**
+
+Lakukan perintah command line seperti berikut:
+
+npm start
+
+
+Nanti akan otomatis terbuka di browser dengan alamat http://localhost:3000.
