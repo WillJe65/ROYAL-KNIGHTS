@@ -31,26 +31,26 @@
 Struktur folder pada Repository ini:
 
 ROYAL-KNIGHTS/<br>
-├── public/
-│   └── index.html       # HTML utama
-├── src/
-│   ├── components/      # Komponen React yang bisa dipakai ulang
-│   │   ├── DepartmentFilter.js # Dropdown untuk filter departemen
-│   │   ├── FilterTabs.js       # Tombol tab (All / Favorites)
-│   │   ├── Gallery.js          # Komponen utama untuk menampilkan seni
-│   │   ├── ImageCard.js        # Kartu buat tiap karya seni
-│   │   └── SearchBar.js        # untuk mencari lebih spesifik
-│   │
-│   ├── context/
-│   │   └── AppContext.js       # Data global (favorites, searchTerm, dll.)
-│   │
-│   ├── App.js           # Komponen utama aplikasi (layout)
+├── public/<br>
+│   └── index.html       # HTML utama<br>
+├── src/<br>
+│   ├── components/      # Komponen React yang bisa dipakai ulang<br>
+│   │   ├── DepartmentFilter.js # Dropdown untuk filter departemen<br>
+│   │   ├── FilterTabs.js       # Tombol tab (All / Favorites)<br>
+│   │   ├── Gallery.js          # Komponen utama untuk menampilkan seni<br>
+│   │   ├── ImageCard.js        # Kartu buat tiap karya seni<br>
+│   │   └── SearchBar.js        # untuk mencari lebih spesifik<br>
+│   │<br>
+│   ├── context/<br>
+│   │   └── AppContext.js       # Data global (favorites, searchTerm, dll.)<br>
+│   │<br>
+│   ├── App.js           # Komponen utama aplikasi (layout)<br>
 │   ├── index.js         # module start aplikasi
-│   └── index.css        # Styling global (termasuk Tailwind)
-│
-├── .env                 # API key/URL
-├── package.json         # Info dependensi proyek
-└── README.md            
+│   └── index.css        # Styling global (termasuk Tailwind)<br>
+│<br>
+├── .env                 # API key/URL<br>
+├── package.json         # Info dependensi proyek<br>
+└── README.md        <br>    
 
 
 ### HOW TO RUN
