@@ -6,8 +6,9 @@ export function AppProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'favorites'
+  const [selectedDepartment, setSelectedDepartment] = useState(''); // ID departemen, '' = 'All'
 
-  // Load favorites from localStorage on mount
+  // Load favorites from localStorage
   useEffect(() => {
     const savedFavorites = localStorage.getItem('royalKnightsFavorites');
     if (savedFavorites) {
@@ -15,7 +16,7 @@ export function AppProvider({ children }) {
     }
   }, []);
 
-  // Save favorites to localStorage whenever it changes
+  // Save favorites to localStorage 
   useEffect(() => {
     localStorage.setItem('royalKnightsFavorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -34,7 +35,9 @@ export function AppProvider({ children }) {
     searchTerm,
     setSearchTerm,
     activeFilter,
-    setActiveFilter
+    setActiveFilter,
+    selectedDepartment,
+    setSelectedDepartment
   };
 
   return (

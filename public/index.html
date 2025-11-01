@@ -11,20 +11,24 @@
       />
       <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+      <!-- Google Font (Inter) -->
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+      <!-- Ikon  -->
+      <script type*="module" src="https://cdn.jsdelivr.net/npm/heroicons@latest/24/outline/index.js"></script>
       <title>Royal Knights Art Gallery</title>
       
-      <!-- Keep your Tailwind and masonry scripts -->
+      <!-- script tailwind dan masory-layout -->
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
       <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
       
       <style>
-        /* Your original clean layout styles */
         .break-inside-avoid {
           break-inside: avoid;
         }
         
-        /* Smooth transitions */
         .transition {
           transition: all 0.3s ease;
         }
@@ -33,11 +37,134 @@
 
     <body class="bg-gray-100 min-h-screen flex flex-col">
       <noscript>You need to enable JavaScript to run this app.</noscript>
-      
-      <!-- React root will be mounted here -->
+      <!-- Hero Section -->
+       <div className="min-h-screen flex flex-col bg-gray-100">
+        {/* Your Original Header */}
+        <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="logo.png" alt="ROYAL KNIGHTS P logo" width="60" height="80">
+                <span class="text-xl font-bold text-gray-800">ROYAL KNIGHTS</span>
+            </div>
+           
+            <div class="hidden md:flex items-center space-x-4">
+            
+                <button class="text-gray-600 hover:text-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            
+                <div class="relative">
+                    <button class="flex items-center text-gray-600 hover:text-red-600">
+                        <span>ID</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform -translate-x-full md:hidden">
+            <div class="flex justify-end p-6">
+                <button id="close-menu-button" class="text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+        <section class="h-screen bg-cover bg-center flex items-center justify-center text-white" 
+         style="background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1491156855053-9cdff72c7f85?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2128');">
+            <div class="text-center bg-black bg-opacity-30 p-8 rounded-lg">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4"> Museum Collection</h1>
+                <p class="text-xl md:text-2xl mb-8">Komitmen kami untuk Menjaga dan Edukasi Budaya dan Seni</p>
+                <a href="#visimisi" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+                    Jelajahi Lebih Lanjut
+                </a> 
+            </div>
+        </section>
+
+        <!-- Gallery museum ini -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Tentang Kami</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card news 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?_gl=1*1r83001*_ga*MTkxNjg1MDcwNi4xNzYyMDA1OTg1*_ga_8JE65Q40S6*czE3NjIwMDU5ODUkbzEkZzEkdDE3NjIwMDU5ODgkajU3JGwwJGgw" alt="image1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Pameran Perdana</h3>
+                            <p class="text-gray-600 mb-4">Jelajahi mahakarya dari berbagai era. Koleksi tetap kami menampilkan lukisan, patung, dan artefak bersejarah yang menjadi inti dari identitas dan warisan budaya galeri kami.</p>
+                            <a href="#" class="text-red-600 hover:underline font-medium">Selengkapnya</a>
+                        </div>
+                    </div>
+                    <!-- Card news 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/137038/pexels-photo-137038.jpeg?_gl=1*1tzmosu*_ga*MTkxNjg1MDcwNi4xNzYyMDA1OTg1*_ga_8JE65Q40S6*czE3NjIwMDU5ODUkbzEkZzEkdDE3NjIwMDYwODEkajU3JGwwJGgw" alt="Bisnis Hilir" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Pameran Temporer</h3>
+                            <p class="text-gray-600 mb-4">Selalu ada hal baru untuk ditemukan. Kami secara rutin menjadi tuan rumah pameran khusus yang menampilkan seniman kontemporer, tema unik, dan kolaborasi internasional terkurasi.</p>
+                            <a href="#" class="text-red-600 hover:underline font-medium">Selengkapnya</a>
+                        </div>
+                    </div>
+                    <!-- Card news 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/2167395/pexels-photo-2167395.jpeg?_gl=1*1n3u5jl*_ga*MTkxNjg1MDcwNi4xNzYyMDA1OTg1*_ga_8JE65Q40S6*czE3NjIwMDU5ODUkbzEkZzEkdDE3NjIwMDYxMTEkajI3JGwwJGgw" alt="Energi Terbarukan" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Edukasi & Konservasi</h3>
+                            <p class="text-gray-600 mb-4">Kami berdedikasi untuk menginspirasi kreativitas dan melestarikan warisan. Temukan program lokakarya, tur berpemandu, dan lihat upaya konservasi kami di balik layar untuk menjaga karya seni.</p>
+                            <a href="#" class="text-red-600 hover:underline font-medium">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visi Misi-->
+        <section class="py-16" id="visimisi">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <img src="logo.png" alt="logo" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold my-4 text-red-600">Visi</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Menjadi pusat pelestarian dan pengembangan warisan budaya yang menginspirasi generasi masa kini 
+                            dan mendatang melalui pengetahuan, seni, serta inovasi berkelanjutan.
+                        </p>
+
+                        <h2 class="text-3xl font-bold my-4 text-red-600">Misi</h2>
+                        <ol class="list-decimal list-inside space-y-3 text-gray-700 leading-relaxed">
+                            <li><strong>Melestarikan Warisan Budaya</strong> — Mengumpulkan, merawat, dan memamerkan artefak sejarah dengan pendekatan edukatif dan interaktif.</li>
+                            <li><strong>Mengedukasi Masyarakat</strong> — Menyediakan program pembelajaran dan kegiatan publik yang mendorong pemahaman tentang sejarah, seni, dan nilai budaya.</li>
+                            <li><strong>Mendorong Inovasi</strong> — Mengintegrasikan teknologi digital untuk memperluas akses dan pengalaman pengunjung secara global.</li>
+                            <li><strong>Memberdayakan Komunitas</strong> — Bekerja sama dengan seniman, peneliti, dan masyarakat untuk mendukung kreativitas dan keberlanjutan sosial.</li>
+                            <li><strong>Menjaga Keberlanjutan</strong> — Menjalankan operasional museum dengan prinsip ramah lingkungan dan tanggung jawab sosial.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+      <!-- ROOT REACT -->
       <div id="root"></div>
       
-      <!-- Your React app will be injected here -->
+      <!-- module yang akan berjalan -->
       <script type="module" src="/src/main.js"></script>
     </body>
 </html>

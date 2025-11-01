@@ -1,13 +1,14 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 
+//TEMPLATE UNTUK KARTU GAMBAR YANG AKAN MUNCUL
 export default function ImageCard({ art }) {
   const { favorites, toggleFavorite } = useApp();
   const isFavorited = favorites.includes(art.id);
 
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition relative group">
-      {/* Like Button */}
+      {/* Like tombol jika ingin menambahkan ke favorites */}
       <button
         onClick={() => toggleFavorite(art.id)}
         className={`absolute top-3 right-3 z-10 p-2 rounded-full transition-all duration-200 ${
@@ -43,7 +44,7 @@ export default function ImageCard({ art }) {
         }}
       />
       
-      {/* Artwork Info - Your original centered design */}
+      {/* Artwork metadata */}
       <div className="p-3 text-center">
         <h2 className="font-semibold text-gray-800 text-sm mb-1">
           {art.title}
@@ -52,7 +53,7 @@ export default function ImageCard({ art }) {
           {art.artistDisplayName || art.artist || 'Unknown Artist'}
         </p>
         
-        {/* Additional metadata (optional) */}
+        {/* Additional metadata */}
         {(art.department || art.objectDate) && (
           <div className="mt-2 pt-2 border-t border-gray-100">
             {art.department && (
