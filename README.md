@@ -30,7 +30,7 @@
 
 Struktur folder pada Repository ini:
 
-ROYAL-KNIGHTS/
+ROYAL-KNIGHTS/<br>
 ├── public/
 │   └── index.html       # HTML utama
 ├── src/
