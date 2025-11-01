@@ -42,7 +42,7 @@ export default function Gallery() {
           // Jika departemen dipilih, ambil ID objek dari departemen itu
           searchResponse = await fetch(`${API_BASE_URL}/public/collection/v1/objects?departmentIds=${selectedDepartment}`);
         } else {
-          // Jika tidak ada departemen dipilih, gunakan logika default Anda (mencari 'portrait')
+          // Jika tidak ada departemen dipilih, gunakan logika default edngan mencari potrait
           searchResponse = await fetch(`${API_BASE_URL}/public/collection/v1/search?q=portrait`);
         }
         
@@ -68,7 +68,7 @@ export default function Gallery() {
         for (const id of ids) {
           try {
             const res = await fetch(`${API_BASE_URL}/public/collection/v1/objects/${id}`);
-            if (!res.ok) continue; // Lewati jika objek tidak ditemukan (cth: 404)
+            if (!res.ok) continue; // Lewati jika objek tidak ditemukan (seperti misalnya: 404)
             
             const art = await res.json();
             
@@ -102,7 +102,7 @@ export default function Gallery() {
         }
       } finally {
         if (mounted) {
-          // Hentikan loading setelah semua selesai
+          // Hentikan loading jika semua selesai
           setLoading(false); 
         }
       }
@@ -110,7 +110,7 @@ export default function Gallery() {
 
     loadArtworks();
     return () => { mounted = false; };
-  }, [selectedDepartment]); // 2. (Lanjutan) useEffect ini akan berjalan lagi saat 'selectedDepartment' berubah
+  }, [selectedDepartment]); // useEffect ini akan berjalan lagi saat 'selectedDepartment' berubah
 
   // Filter artworks berdasarkan active filter, search term, dan favorites
   // Logika ini (client-side filtering) tetap sama dan akan berjalan PADA HASIL yang sudah di-fetch
@@ -156,7 +156,7 @@ export default function Gallery() {
 
   return (
     <div>
-      {/* Results Count */}
+      {/* Jumlah Results  */}
       <div className="mb-6 text-center">
         <p className="text-gray-600">
           Showing {filteredArtworks.length} of {artworks.length} artworks
@@ -166,7 +166,7 @@ export default function Gallery() {
         </p>
       </div>
 
-      {/* Your Original Column Layout */}
+      {/* Column Layout */}
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
         {filteredArtworks.map(art => (
           <div key={art.id} className="mb-4 break-inside-avoid">
@@ -175,7 +175,7 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* No Results Message */}
+      {/* Message Tidak ada hasil */}
       {(filteredArtworks.length === 0 && artworks.length > 0) && (
         <div className="text-center py-12">
           <div className="text-gray-400 text-6xl mb-4">🎨</div>
@@ -191,7 +191,7 @@ export default function Gallery() {
         </div>
       )}
 
-      {/* No Results at All Message */}
+      {/* Jika tidak ada hasil sama sekali*/}
       {(artworks.length === 0 && !loading) && (
          <div className="text-center py-12">
           <div className="text-gray-400 text-6xl mb-4">🖼️</div>
