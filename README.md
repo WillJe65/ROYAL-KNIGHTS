@@ -2,7 +2,7 @@
 
 **Royal Knights** itu aplikasi web keren yang dibikin pakai **React**. Kamu bisa jelajin ribuan karya seni dari koleksi **Met Museum** langsung dari API publiknya
 
-![SCREENSHOOT](URL_UNTUK_SCREENSHOt)
+![img1](URL_UNTUK_SCREENSHOt)
 
 ## Apa Aja Fiturnya?
 
@@ -15,6 +15,8 @@
 **Simpan Favorit:** Klik aja ikon hati! Nanti akan disimpan menggunakan local storage di browser.
 
 **Loading & Error handling:** Akan memberikan feedback apabila terjadinya masalah.
+
+![img2](URL_UNTUK_SCREENSHOt)
 
 ## Dibuat Pakai Apa Aja?
 
@@ -52,6 +54,7 @@ ROYAL-KNIGHTS/<br>
 ├── package.json         # Info dependensi proyek<br>
 └── README.md        <br>    
 
+![img3](URL_UNTUK_SCREENSHOt)
 
 ### HOW TO RUN
 
@@ -86,5 +89,6 @@ Lakukan perintah command line seperti berikut:
 
 npm start
 
+![img4](URL_UNTUK_SCREENSHOt)
 
 Nanti akan otomatis terbuka di browser dengan alamat http://localhost:3000.
